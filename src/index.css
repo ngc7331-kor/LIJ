@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2563EB;
+  --color-background-light: #F3F4F6;
+  --color-background-dark: #111827;
+  --color-surface-light: #FFFFFF;
+  --color-surface-dark: #1F2937;
+  --color-status-possible: #10B981;
+  --color-status-impossible: #EAB308;
+  --color-status-pending: #9CA3AF;
+  --color-team-doosan: #131230;
+  --color-team-lg: #C30452;
+  --color-team-kia: #EA0029;
+  --color-team-samsung: #074CA1;
+  --color-team-lotte: #041E42;
+  --color-team-hanwha: #FF6600;
+  --color-team-nc: #315288;
+  --color-team-kiwoom: #570514;
+  --color-team-ssg: #CE0E2D;
+  --color-team-kt: #000000;
+}
+
+@layer base {
+  body {
+    -webkit-touch-callout: none; /* Disable iOS long-press popup */
+    -webkit-user-select: none;   /* Disable text selection */
+    user-select: none;
+    overscroll-behavior-y: none; /* Prevent pull-to-refresh bounce on the whole page */
+    background-color: var(--color-background-light);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: var(--color-background-dark);
+    }
+  }
+
+  /* Re-enable selection for inputs to allow typing */
+  input, textarea {
+    -webkit-user-select: auto;
+    user-select: auto;
+  }
+}
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+  .pt-safe {
+    padding-top: max(0rem, env(safe-area-inset-top));
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 20px;
+  }
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(75, 85, 99, 0.5);
+  }
+}

@@ -1,0 +1,1783 @@
+{
+  "2026-04-01": {
+    "match": "한화(대전) 18:30",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "possible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-02": {
+    "match": "한화(대전) 18:30",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "pending",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-03": {
+    "match": "삼성(홈) 18:30",
+    "members": {
+      "IH": "impossible",
+      "MG": "pending",
+      "TO": "possible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "possible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-04": {
+    "match": "삼성(홈) 17:00",
+    "members": {
+      "IH": "possible",
+      "MG": "impossible",
+      "TO": "impossible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "possible"
+    }
+  },
+  "2026-04-05": {
+    "match": "삼성(홈) 14:00",
+    "members": {
+      "IH": "possible",
+      "MG": "impossible",
+      "TO": "impossible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "possible",
+      "SB": "possible"
+    }
+  },
+  "2026-04-07": {
+    "match": "롯데(부산) 18:30",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-08": {
+    "match": "롯데(부산) 18:30",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-09": {
+    "match": "롯데(부산) 18:30",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "pending",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-10": {
+    "match": "두산(홈) 18:30",
+    "members": {
+      "IH": "possible",
+      "MG": "possible",
+      "TO": "possible",
+      "GJ": "possible",
+      "MH": "possible",
+      "JY": "possible",
+      "JA": "possible",
+      "SB": "possible"
+    }
+  },
+  "2026-04-11": {
+    "match": "두산(홈) 17:00",
+    "members": {
+      "IH": "possible",
+      "MG": "impossible",
+      "TO": "impossible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "possible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-12": {
+    "match": "두산(홈) 14:00",
+    "members": {
+      "IH": "possible",
+      "MG": "impossible",
+      "TO": "impossible",
+      "GJ": "possible",
+      "MH": "impossible",
+      "JY": "possible",
+      "JA": "impossible",
+      "SB": "possible"
+    }
+  },
+  "2026-04-14": {
+    "match": "NC(창원) 18:30",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-15": {
+    "match": "NC(창원) 18:30",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "possible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-16": {
+    "match": "NC(창원) 18:30",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "pending",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-17": {
+    "match": "키움(홈) 18:30",
+    "members": {
+      "IH": "possible",
+      "MG": "possible",
+      "TO": "possible",
+      "GJ": "possible",
+      "MH": "impossible",
+      "JY": "possible",
+      "JA": "impossible",
+      "SB": "possible"
+    }
+  },
+  "2026-04-18": {
+    "match": "키움(홈) 17:00",
+    "members": {
+      "IH": "possible",
+      "MG": "impossible",
+      "TO": "impossible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-19": {
+    "match": "키움(홈) 14:00",
+    "members": {
+      "IH": "possible",
+      "MG": "impossible",
+      "TO": "impossible",
+      "GJ": "possible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "possible"
+    }
+  },
+  "2026-04-21": {
+    "match": "KIA(홈) 18:30",
+    "members": {
+      "IH": "possible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "possible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-22": {
+    "match": "KIA(홈) 18:30",
+    "members": {
+      "IH": "possible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "possible",
+      "MH": "possible",
+      "JY": "possible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-23": {
+    "match": "KIA(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "possible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-24": {
+    "match": "SSG(인천) 18:30",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "pending",
+      "MH": "impossible",
+      "JY": "possible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-25": {
+    "match": "SSG(인천) 17:00",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "impossible",
+      "GJ": "pending",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "possible"
+    }
+  },
+  "2026-04-26": {
+    "match": "SSG(인천) 14:00",
+    "members": {
+      "IH": "impossible",
+      "MG": "impossible",
+      "TO": "impossible",
+      "GJ": "impossible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-28": {
+    "match": "LG(홈) 18:30",
+    "members": {
+      "IH": "possible",
+      "MG": "possible",
+      "TO": "possible",
+      "GJ": "possible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-29": {
+    "match": "LG(홈) 18:30",
+    "members": {
+      "IH": "possible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "possible",
+      "MH": "impossible",
+      "JY": "possible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-04-30": {
+    "match": "LG(홈) 18:30",
+    "members": {
+      "IH": "possible",
+      "MG": "impossible",
+      "TO": "possible",
+      "GJ": "possible",
+      "MH": "impossible",
+      "JY": "impossible",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-05-01": {
+    "match": "KIA(광주) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-02": {
+    "match": "KIA(광주) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-03": {
+    "match": "KIA(광주) 14:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "impossible",
+      "SB": "pending"
+    }
+  },
+  "2026-05-05": {
+    "match": "롯데(홈)-어린이날 14:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "impossible",
+      "SB": "pending"
+    }
+  },
+  "2026-05-06": {
+    "match": "롯데(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-07": {
+    "match": "롯데(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-08": {
+    "match": "키움(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-09": {
+    "match": "키움(서울) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "impossible"
+    }
+  },
+  "2026-05-10": {
+    "match": "키움(서울) 14:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "impossible",
+      "SB": "impossible"
+    }
+  },
+  "2026-05-12": {
+    "match": "SSG(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-13": {
+    "match": "SSG(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-14": {
+    "match": "SSG(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-15": {
+    "match": "한화(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-16": {
+    "match": "한화(홈) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-17": {
+    "match": "한화(홈) 14:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-19": {
+    "match": "삼성(대구) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-20": {
+    "match": "삼성(대구) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "impossible",
+      "SB": "pending"
+    }
+  },
+  "2026-05-21": {
+    "match": "삼성(대구) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-22": {
+    "match": "NC(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-23": {
+    "match": "NC(홈) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-24": {
+    "match": "NC(홈) 14:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-26": {
+    "match": "두산(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-27": {
+    "match": "두산(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-28": {
+    "match": "두산(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-29": {
+    "match": "키움(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-30": {
+    "match": "키움(서울) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-05-31": {
+    "match": "키움(서울) 14:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-02": {
+    "match": "LG(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "impossible",
+      "SB": "pending"
+    }
+  },
+  "2026-06-03": {
+    "match": "LG(홈)-선거일  17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "impossible",
+      "SB": "pending"
+    }
+  },
+  "2026-06-04": {
+    "match": "LG(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-05": {
+    "match": "SSG(인천) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-06": {
+    "match": "SSG(인천) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-07": {
+    "match": "SSG(인천) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-09": {
+    "match": "삼성(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-10": {
+    "match": "삼성(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-11": {
+    "match": "삼성(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-12": {
+    "match": "NC(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-13": {
+    "match": "NC(홈) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-14": {
+    "match": "NC(홈) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-16": {
+    "match": "두산(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-17": {
+    "match": "두산(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-18": {
+    "match": "두산(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-19": {
+    "match": "KIA(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-20": {
+    "match": "KIA(홈) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-21": {
+    "match": "KIA(홈) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-23": {
+    "match": "SSG(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-24": {
+    "match": "SSG(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-25": {
+    "match": "SSG(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-26": {
+    "match": "삼성(대구) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-27": {
+    "match": "삼성(대구) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-28": {
+    "match": "삼성(대구) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-06-30": {
+    "match": "한화(대전) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-01": {
+    "match": "한화(대전) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-02": {
+    "match": "한화(대전) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-03": {
+    "match": "롯데(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-04": {
+    "match": "롯데(홈) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-05": {
+    "match": "롯데(홈) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-07": {
+    "match": "키움(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-08": {
+    "match": "키움(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-09": {
+    "match": "키움(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-10": {
+    "match": "올스타 브레이크",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-11": {
+    "match": "올스타 브레이크",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-12": {
+    "match": "올스타 브레이크",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-14": {
+    "match": "올스타 브레이크",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-15": {
+    "match": "올스타 브레이크",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-16": {
+    "match": "LG(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-17": {
+    "match": "LG(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "impossible",
+      "SB": "pending"
+    }
+  },
+  "2026-07-18": {
+    "match": "LG(서울) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "impossible",
+      "SB": "pending"
+    }
+  },
+  "2026-07-19": {
+    "match": "LG(서울) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "impossible",
+      "SB": "pending"
+    }
+  },
+  "2026-07-21": {
+    "match": "두산(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-22": {
+    "match": "두산(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-23": {
+    "match": "두산(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-24": {
+    "match": "롯데(부산) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-25": {
+    "match": "롯데(부산) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-26": {
+    "match": "롯데(부산) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-28": {
+    "match": "NC(창원) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-29": {
+    "match": "NC(창원) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-30": {
+    "match": "NC(창원) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-07-31": {
+    "match": "한화(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-01": {
+    "match": "한화(홈) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-02": {
+    "match": "한화(홈) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-04": {
+    "match": "KIA(광주) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-05": {
+    "match": "KIA(광주) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-06": {
+    "match": "KIA(광주) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-07": {
+    "match": "롯데(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-08": {
+    "match": "롯데(홈) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-09": {
+    "match": "롯데(홈) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-11": {
+    "match": "NC(창원) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-12": {
+    "match": "NC(창원) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-13": {
+    "match": "NC(창원) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-14": {
+    "match": "키움(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-15": {
+    "match": "키움(홈) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-16": {
+    "match": "키움(홈) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-18": {
+    "match": "LG(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-19": {
+    "match": "LG(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-20": {
+    "match": "LG(서울) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-21": {
+    "match": "SSG(인천) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-22": {
+    "match": "SSG(인천) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-23": {
+    "match": "SSG(인천) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-25": {
+    "match": "두산(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-26": {
+    "match": "두산(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-27": {
+    "match": "두산(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-28": {
+    "match": "삼성(대구) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-29": {
+    "match": "삼성(대구) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-08-30": {
+    "match": "삼성(대구) 18:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-09-01": {
+    "match": "한화(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-09-02": {
+    "match": "한화(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-09-03": {
+    "match": "한화(홈) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-09-04": {
+    "match": "KIA(광주) 18:30",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-09-05": {
+    "match": "KIA(광주) 17:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  },
+  "2026-09-06": {
+    "match": "KIA(광주) 14:00",
+    "members": {
+      "IH": "pending",
+      "MG": "pending",
+      "TO": "pending",
+      "GJ": "pending",
+      "MH": "pending",
+      "JY": "pending",
+      "JA": "pending",
+      "SB": "pending"
+    }
+  }
+}
