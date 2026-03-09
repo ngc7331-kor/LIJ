@@ -8,7 +8,7 @@ type MockUser = {
 };
 
 function SettingsView({ schedule, setSchedule, members, setMembers, user }: any) {
-  const [currentView, setCurrentView] = useState<'main' | 'members' | 'schedule'>('main');
+  const [currentView, setCurrentView] = useState<'main' | 'members' | 'schedule' | 'confirmed'>('main');
   
   // Member State
   const [memberList, setMemberList] = useState(() => members.map((m: string) => ({ id: m, name: m, status: 'keep', isNew: false })));
@@ -245,11 +245,110 @@ function SettingsView({ schedule, setSchedule, members, setMembers, user }: any)
     );
   }
 
+  if (currentView === 'confirmed') {
+    return (
+      <div className="p-4 sm:p-6 overflow-y-auto flex-grow bg-gray-50 dark:bg-gray-900 flex flex-col min-h-0">
+        <div className="flex items-center mb-6 shrink-0">
+          <button 
+            onClick={() => setCurrentView('main')}
+            className="p-2 mr-2 -ml-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+          </button>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">관람 확정일 설정</h2>
+        </div>
+        
+        <div className="bg-white dark:bg-gray-800 p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700">
+          <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">날짜 선택</label>
+          <input 
+            type="date" 
+            value={selectedDate} 
+            onChange={handleDateSelect}
+            className="w-full border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 rounded-xl p-3 mb-6 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all dark:[color-scheme:dark]"
+          />
+          
+          {selectedDate && schedule[selectedDate] && !schedule[selectedDate].isConfirmed && (
+            <button 
+              onClick={() => {
+                setSchedule((prev: any) => ({
+                  ...prev,
+                  [selectedDate]: { ...prev[selectedDate], isConfirmed: true }
+                }));
+                alert('관람 확정일로 지정되었습니다.');
+              }}
+              className="bg-primary text-white px-4 py-3 rounded-xl text-sm font-bold w-full shadow-sm hover:bg-blue-700 transition-colors active:scale-[0.98] mb-4"
+            >
+              관람 확정하기
+            </button>
+          )}
+
+          {selectedDate && schedule[selectedDate]?.isConfirmed && (
+            <button 
+              onClick={() => {
+                setSchedule((prev: any) => ({
+                  ...prev,
+                  [selectedDate]: { ...prev[selectedDate], isConfirmed: false }
+                }));
+                alert('관람 확정이 취소되었습니다.');
+              }}
+              className="bg-red-500 text-white px-4 py-3 rounded-xl text-sm font-bold w-full shadow-sm hover:bg-red-600 transition-colors active:scale-[0.98] mb-4"
+            >
+              관람 확정 취소
+            </button>
+          )}
+
+          <div className="mt-6">
+            <h3 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">현재 확정된 날짜</h3>
+            <ul className="space-y-2">
+              {Object.entries(schedule)
+                .filter(([_, data]: any) => data.isConfirmed)
+                .map(([date, data]: any) => (
+                  <li key={date} className="flex justify-between items-center bg-gray-50 dark:bg-gray-900 p-3 rounded-xl border border-gray-200 dark:border-gray-700">
+                    <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{date} ({data.match})</span>
+                    <button 
+                      onClick={() => {
+                        setSchedule((prev: any) => ({
+                          ...prev,
+                          [date]: { ...prev[date], isConfirmed: false }
+                        }));
+                      }}
+                      className="text-xs text-red-500 font-bold hover:underline"
+                    >
+                      취소
+                    </button>
+                  </li>
+                ))}
+              {Object.entries(schedule).filter(([_, data]: any) => data.isConfirmed).length === 0 && (
+                <li className="text-sm text-gray-500 dark:text-gray-400 text-center py-4">확정된 일정이 없습니다.</li>
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="p-4 sm:p-6 overflow-y-auto flex-grow bg-gray-50 dark:bg-gray-900 flex flex-col min-h-0">
       <h2 className="text-xl sm:text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100 px-1">설정</h2>
       
       <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden divide-y divide-gray-100 dark:divide-gray-700">
+        <button 
+          onClick={() => setCurrentView('confirmed')}
+          className="w-full flex items-center justify-between p-4 sm:p-5 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors text-left"
+        >
+          <div className="flex items-center space-x-4">
+            <div className="w-10 h-10 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center text-green-600">
+              <CalendarDays className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-gray-100">관람 확정일 설정</h3>
+              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-0.5">다같이 직관 가는 날짜 지정</p>
+            </div>
+          </div>
+          <ChevronRight className="w-5 h-5 text-gray-400" />
+        </button>
+
         {user?.email === 'taeoh0311@gmail.com' && (
           <button 
             onClick={handleEnterMembers}
@@ -520,21 +619,21 @@ export default function App() {
 
   useEffect(() => {
     const kboPicks = [
-      "'나는 공을 던지는 게 아니라, 내 마음을 던진다.' - 최동원",
-      "'혼을 담은 노력은 결코 배신하지 않는다.' - 이승엽",
-      "'내 사전에 내일은 없다. 오늘만 생각하고 던진다.' - 선동열",
+      "'공이 아닌 마음을 던진다.' - 최동원",
+      "'혼을 담은 노력은 배신하지 않는다.' - 이승엽",
+      "'내 사전에 내일은 없다.' - 선동열",
       "'야구 몰라요.' - 하일성",
       "'위기 뒤에 찬스, 찬스 뒤에 위기.' - 야구 격언",
-      "1982년 3월 27일, KBO 리그가 역사적인 첫발을 내디뎠습니다.",
-      "1984년 한국시리즈, 최동원 선수가 전무후무한 4승을 거두었습니다.",
-      "2003년 10월 2일, 이승엽 선수가 아시아 단일 시즌 최다 56호 홈런을 쏘아 올렸습니다.",
-      "2008년 베이징 올림픽, 대한민국 야구 국가대표팀이 9전 전승으로 금메달을 획득했습니다.",
-      "2010년 이대호 선수가 세계 야구 역사상 최초로 9경기 연속 홈런을 기록했습니다.",
-      "2014년 서건창 선수가 KBO 리그 사상 최초로 단일 시즌 200안타 고지를 밟았습니다.",
-      "1982년 한국시리즈, OB 베어스가 KBO 초대 우승팀으로 역사에 이름을 남겼습니다.",
-      "2006년 WBC, 대한민국 국가대표팀이 4강 신화를 쓰며 전 세계를 놀라게 했습니다.",
-      "2015년 WBSC 프리미어 12, 대한민국이 초대 우승국의 영예를 안았습니다.",
-      "1993년 한국시리즈, '바람의 아들' 이종범이 공수주를 지배하며 우승을 이끌었습니다."
+      "1982년 3월 27일, KBO 리그 출범",
+      "1984년 한국시리즈, 최동원 전무후무 4승",
+      "2003년 이승엽, 아시아 최다 56호 홈런",
+      "2008년 베이징 올림픽, 야구 9전 전승 금메달",
+      "2010년 이대호, 세계 최초 9경기 연속 홈런",
+      "2014년 서건창, KBO 최초 단일 시즌 200안타",
+      "1982년 한국시리즈, OB 베어스 초대 우승",
+      "2006년 WBC, 대한민국 야구 4강 신화",
+      "2015년 WBSC 프리미어 12, 대한민국 초대 우승",
+      "1993년 한국시리즈, '바람의 아들' 이종범 맹활약"
     ];
     setRandomPick(kboPicks[Math.floor(Math.random() * kboPicks.length)]);
   }, []);
@@ -629,10 +728,12 @@ export default function App() {
         isWeekend: new Date(year, month, i).getDay() === 6,
         isSunday: new Date(year, month, i).getDay() === 0,
         isToday: false,
+        isConfirmed: false,
       };
       
       const daySchedule = (schedule as any)[dateStr];
       if (daySchedule) {
+        dayData.isConfirmed = daySchedule.isConfirmed || false;
         const matchStr = daySchedule.match;
         const matchRegex = /^(.+?)\((.+?)\)\s*(.*)$/;
         const match = matchStr.match(matchRegex);
@@ -809,7 +910,10 @@ export default function App() {
                 return (
                   <div key={idx} className="relative w-full h-full cursor-pointer group">
                     <div className="absolute inset-0 flex flex-col">
-                      <div className={`text-[10px] sm:text-xs md:text-sm text-center mb-0.5 shrink-0 ${day.isSunday ? 'text-red-500' : day.isWeekend ? 'text-blue-500' : 'text-gray-700 dark:text-gray-300'}`}>{day.date}</div>
+                      <div className={`flex justify-center items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs md:text-sm text-center mb-0.5 shrink-0 ${day.isSunday ? 'text-red-500' : day.isWeekend ? 'text-blue-500' : 'text-gray-700 dark:text-gray-300'}`}>
+                        <span>{day.date}</span>
+                        {day.isConfirmed && <span className="bg-red-500 text-white text-[6px] sm:text-[7px] md:text-[8px] px-1 py-0.5 rounded-sm font-bold leading-none whitespace-nowrap">관람 확정</span>}
+                      </div>
                       <div className="bg-gray-100 dark:bg-gray-800/50 rounded p-0.5 border border-gray-200 dark:border-gray-700 flex items-center justify-center flex-grow shadow-sm min-h-0">
                         <span className="text-[8px] sm:text-[9px] md:text-[10px] text-gray-400 dark:text-gray-500 font-medium">경기 없음</span>
                       </div>
@@ -822,7 +926,10 @@ export default function App() {
                 return (
                   <div key={idx} className="relative w-full h-full cursor-pointer group">
                     <div className="absolute inset-0 flex flex-col">
-                      <div className={`text-[10px] sm:text-xs md:text-sm text-center mb-0.5 shrink-0 ${day.isSunday ? 'text-red-500' : day.isWeekend ? 'text-blue-500' : 'text-gray-700 dark:text-gray-300'}`}>{day.date}</div>
+                      <div className={`flex justify-center items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs md:text-sm text-center mb-0.5 shrink-0 ${day.isSunday ? 'text-red-500' : day.isWeekend ? 'text-blue-500' : 'text-gray-700 dark:text-gray-300'}`}>
+                        <span>{day.date}</span>
+                        {day.isConfirmed && <span className="bg-red-500 text-white text-[6px] sm:text-[7px] md:text-[8px] px-1 py-0.5 rounded-sm font-bold leading-none whitespace-nowrap">관람 확정</span>}
+                      </div>
                       <div className="bg-surface-light dark:bg-surface-dark rounded p-0.5 border border-gray-200 dark:border-gray-700 flex flex-col flex-grow shadow-sm min-h-0"></div>
                     </div>
                   </div>
@@ -834,7 +941,10 @@ export default function App() {
                 return (
                   <div key={idx} className="relative w-full h-full cursor-pointer group">
                     <div className="absolute inset-0 flex flex-col">
-                      <div className={`text-[10px] sm:text-xs md:text-sm text-center mb-0.5 shrink-0 ${day.isSunday ? 'text-red-500' : day.isWeekend ? 'text-blue-500' : 'text-gray-700 dark:text-gray-300'}`}>{day.date}</div>
+                      <div className={`flex justify-center items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs md:text-sm text-center mb-0.5 shrink-0 ${day.isSunday ? 'text-red-500' : day.isWeekend ? 'text-blue-500' : 'text-gray-700 dark:text-gray-300'}`}>
+                        <span>{day.date}</span>
+                        {day.isConfirmed && <span className="bg-red-500 text-white text-[6px] sm:text-[7px] md:text-[8px] px-1 py-0.5 rounded-sm font-bold leading-none whitespace-nowrap">관람 확정</span>}
+                      </div>
                       <div className="bg-blue-50 dark:bg-blue-900/10 rounded p-0.5 border border-blue-200 dark:border-blue-800 flex items-center justify-center flex-grow shadow-sm min-h-0">
                         <span className="text-[8px] sm:text-[9px] md:text-[10px] text-blue-600 dark:text-blue-400 font-bold text-center leading-tight">{day.game.team}</span>
                       </div>
@@ -846,7 +956,10 @@ export default function App() {
               return (
                 <div key={idx} className="relative w-full h-full group">
                   <div className="absolute inset-0 flex flex-col">
-                    <div className={`text-[10px] sm:text-xs md:text-sm text-center mb-0.5 shrink-0 ${day.isToday ? 'font-bold text-gray-900 dark:text-gray-100' : day.isSunday ? 'text-red-500' : day.isWeekend ? 'text-blue-500' : 'text-gray-700 dark:text-gray-300'}`}>{day.date}</div>
+                    <div className={`flex justify-center items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs md:text-sm text-center mb-0.5 shrink-0 ${day.isToday ? 'font-bold text-gray-900 dark:text-gray-100' : day.isSunday ? 'text-red-500' : day.isWeekend ? 'text-blue-500' : 'text-gray-700 dark:text-gray-300'}`}>
+                      <span>{day.date}</span>
+                      {day.isConfirmed && <span className="bg-red-500 text-white text-[6px] sm:text-[7px] md:text-[8px] px-1 py-0.5 rounded-sm font-bold leading-none whitespace-nowrap">관람 확정</span>}
+                    </div>
                     <div className={`${day.isToday ? 'bg-blue-50/50 dark:bg-blue-900/10 border border-primary ring-1 ring-primary/20' : day.game.isHome ? 'bg-gray-50 dark:bg-gray-800 ring-1 ring-gray-300 dark:ring-gray-600 group-hover:border-primary group-hover:ring-1 group-hover:ring-primary' : 'bg-surface-light dark:bg-surface-dark group-hover:border-primary group-hover:ring-1 group-hover:ring-primary'} rounded p-0.5 sm:p-1 border border-gray-200 dark:border-gray-700 flex flex-col transition-all flex-grow shadow-sm min-h-0 overflow-hidden`}>
                     <div className="shrink-0 flex items-center justify-center py-0.5 w-full px-0.5">
                       <div className={`flex flex-wrap items-center justify-center gap-x-0.5 gap-y-0.5 bg-white dark:bg-gray-100 px-1 py-0.5 sm:py-1 rounded shadow-sm border border-gray-100 dark:border-gray-300 ${day.game.color} w-full`}>
@@ -892,13 +1005,19 @@ export default function App() {
                           </div>
                         );
                       })() : (
-                        <div className="grid grid-cols-2 grid-rows-4 gap-x-0.5 gap-y-0 text-[6.5px] sm:text-[8px] md:text-[9px] font-bold text-center leading-none mt-0.5 flex-grow min-h-0 overflow-hidden">
-                          {day.game.members.map((member: any, mIdx: number) => (
-                            <div key={mIdx} className={`flex items-center justify-center truncate ${member.status === 'possible' ? 'text-status-possible' : member.status === 'impossible' ? 'text-status-impossible' : 'text-status-pending'}`}>
-                              {member.id}
-                            </div>
-                          ))}
-                        </div>
+                        day.isConfirmed ? (
+                          <div className="flex items-center justify-center flex-grow mt-0.5 min-h-0 overflow-hidden">
+                            <img alt="Life Is Jikgwan Logo" className="w-8 h-8 sm:w-10 sm:h-10 object-contain rounded-full opacity-90" src="/logo.png" onError={(e) => { e.currentTarget.src = "https://placehold.co/100x100/111827/FFFFFF?text=Logo" }} />
+                          </div>
+                        ) : (
+                          <div className="grid grid-cols-2 grid-rows-4 gap-x-0.5 gap-y-0 text-[6.5px] sm:text-[8px] md:text-[9px] font-bold text-center leading-none mt-0.5 flex-grow min-h-0 overflow-hidden">
+                            {day.game.members.map((member: any, mIdx: number) => (
+                              <div key={mIdx} className={`flex items-center justify-center truncate ${member.status === 'possible' ? 'text-status-possible' : member.status === 'impossible' ? 'text-status-impossible' : 'text-status-pending'}`}>
+                                {member.id}
+                              </div>
+                            ))}
+                          </div>
+                        )
                       )
                     )}
                   </div>
