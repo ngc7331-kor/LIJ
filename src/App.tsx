@@ -424,29 +424,25 @@ function StandingsView() {
         // TODO: 실제 배포된 Google Apps Script Web App URL로 교체해야 합니다.
         // 현재는 임시로 사용자가 제공한 스프레드시트 URL을 사용하지만, 
         // 실제로는 '웹 앱으로 배포' 후 얻은 https://script.google.com/.../exec 형태의 URL이어야 합니다.
-        const gasUrl = (import.meta as any).env.VITE_APPS_SCRIPT_URL || 'https://docs.google.com/spreadsheets/d/1wJowMQqb5NtfZb38xj_3DS7GdvG17NOMThrn7zP9OF0/edit?gid=771508336#gid=771508336';
+        const gasUrl = (import.meta as any).env.VITE_APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbyARqUA6BP6sKGKUv5sYEf8d_oDGdpDgkLFszyWXdQ5azvqZx69yzb3wnzmVP7uKvkIgA/exec';
         
-        // 주의: 현재 URL은 웹 앱 URL이 아니므로 실제 fetch는 실패할 수 있습니다.
-        // URL이 준비되면 이 부분의 주석을 풀고 실제 요청을 보냅니다.
-        /*
         const response = await fetch(`${gasUrl}?action=getStandings`);
         if (response.ok) {
           const data = await response.json();
           if (data.data && data.data.length > 0) {
             setStandings(data.data);
             setLastUpdated(data.lastUpdated);
+          } else {
+            // Fallback to mock if no data
+            setStandings(mockStandings);
+            setLastUpdated(new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }) + ' (임시 데이터)');
           }
           if (data.adminEmail) setAdminEmail(data.adminEmail);
           if (data.memberEmails) setMemberEmails(data.memberEmails);
+        } else {
+          throw new Error('Network response was not ok');
         }
-        */
-        
-        // URL이 준비될 때까지는 임시 데이터(mock)를 보여줍니다.
-        setTimeout(() => {
-          setStandings(mockStandings);
-          setLastUpdated(new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }) + ' (임시 데이터)');
-          setIsLoading(false);
-        }, 300);
+        setIsLoading(false);
 
       } catch (error) {
         console.error('Failed to fetch standings from GAS:', error);
@@ -562,7 +558,7 @@ export default function App() {
   // Load from Apps Script
   useEffect(() => {
     const loadData = async () => {
-      const url = (import.meta as any).env.VITE_APPS_SCRIPT_URL;
+      const url = (import.meta as any).env.VITE_APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbyARqUA6BP6sKGKUv5sYEf8d_oDGdpDgkLFszyWXdQ5azvqZx69yzb3wnzmVP7uKvkIgA/exec';
       if (!url) {
         setIsLoading(false);
         return;
@@ -570,8 +566,13 @@ export default function App() {
       try {
         const res = await fetch(url);
         const data = await res.json();
-        if (data.schedule) setSchedule(data.schedule);
-        if (data.members) setMembers(data.members);
+        // Only update schedule if it's a valid object (not the empty array from placeholder GAS)
+        if (data.schedule && !Array.isArray(data.schedule) && Object.keys(data.schedule).length > 0) {
+          setSchedule(data.schedule);
+        }
+        if (data.members && Array.isArray(data.members) && data.members.length > 0) {
+          setMembers(data.members);
+        }
       } catch (e) {
         console.error("Failed to load data from server", e);
       } finally {
@@ -588,7 +589,7 @@ export default function App() {
       return;
     }
     const timer = setTimeout(() => {
-      const url = (import.meta as any).env.VITE_APPS_SCRIPT_URL;
+      const url = (import.meta as any).env.VITE_APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbyARqUA6BP6sKGKUv5sYEf8d_oDGdpDgkLFszyWXdQ5azvqZx69yzb3wnzmVP7uKvkIgA/exec';
       if (!url) return;
       
       fetch(url, {
