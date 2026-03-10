@@ -437,8 +437,6 @@ function StandingsView() {
             setStandings(mockStandings);
             setLastUpdated(new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }) + ' (임시 데이터)');
           }
-          if (data.adminEmail) setAdminEmail(data.adminEmail);
-          if (data.memberEmails) setMemberEmails(data.memberEmails);
         } else {
           throw new Error('Network response was not ok');
         }
@@ -446,6 +444,8 @@ function StandingsView() {
 
       } catch (error) {
         console.error('Failed to fetch standings from GAS:', error);
+        setStandings(mockStandings);
+        setLastUpdated(new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }) + ' (임시 데이터 - 연결 실패)');
         setIsLoading(false);
       }
     };
@@ -575,6 +575,7 @@ export default function App() {
         }
       } catch (e) {
         console.error("Failed to load data from server", e);
+        // Fallback to initial state is already handled by useState defaults
       } finally {
         setIsLoading(false);
       }
@@ -594,6 +595,7 @@ export default function App() {
       
       fetch(url, {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({ action: 'save', schedule, members, user: user?.email })
       }).catch(console.error);

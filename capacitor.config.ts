@@ -4,7 +4,11 @@ const config: CapacitorConfig = {
   appId: 'com.lifeisjikgwan.app',
   appName: '야구 일정',
   webDir: 'dist',
-  bundledWebRuntime: false
+  plugins: {
+    CapacitorHttp: {
+      enabled: false,
+    },
+  },
 };
 
 export default config;
