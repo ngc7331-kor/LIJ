@@ -144,67 +144,63 @@ function createRetryTrigger() {
 // 3. 웹 앱 API 엔드포인트 (React 앱과 통신)
 // ==========================================
 
-// 앱스 스크립트에서 관리할 멤버 이메일 목록
-const ADMIN_EMAIL = 'taeoh0311@gmail.com';
-const MEMBER_EMAILS = {
-  'IH': 'ih@example.com',
-  'MG': 'mg@example.com',
-  'TO': 'taeoh0311@gmail.com',
-  'GJ': 'gj@example.com',
-  'MH': 'mh@example.com',
-  'JY': 'jy@example.com',
-  'JA': 'ja@example.com',
-  'SB': 'sb@example.com'
-};
+// 3. 멤버 이메일 및 목록 관리 (시트 기반)
+const MEMBER_SHEET_NAME = '멤버이니셜';
 
-// GET 요청 처리 (앱이 켜질 때 데이터 읽기)
-function doGet(e) {
-  const action = e.parameter ? e.parameter.action : null;
+function getGlobalMembersList() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(MEMBER_SHEET_NAME);
   
-  if (action === 'getStandings') {
-    return ContentService.createTextOutput(JSON.stringify({
-      data: getStandingsDataJSON().data,
-      lastUpdated: getStandingsDataJSON().lastUpdated,
-      adminEmail: ADMIN_EMAIL,
-      memberEmails: MEMBER_EMAILS
-    })).setMimeType(ContentService.MimeType.JSON);
-  } else if (action === 'getSchedule') {
-    return ContentService.createTextOutput(JSON.stringify(getScheduleDataJSON()))
-      .setMimeType(ContentService.MimeType.JSON);
+  if (!sheet) {
+    sheet = ss.insertSheet(MEMBER_SHEET_NAME);
+    sheet.appendRow(['이니셜', '이메일', '상태']);
+    // 초기 데이터 삽입
+    const initialData = [
+      ['IH', 'ih@example.com', '유지'],
+      ['MG', 'mg@example.com', '유지'],
+      ['TO', 'taeoh0311@gmail.com', '유지'],
+      ['GJ', 'gj@example.com', '유지'],
+      ['MH', 'mh@example.com', '유지'],
+      ['JY', 'jy@example.com', '유지'],
+      ['JA', 'ja@example.com', '유지'],
+      ['SB', 'sb@example.com', '유지']
+    ];
+    sheet.getRange(2, 1, initialData.length, 3).setValues(initialData);
   }
   
-  // 기본적으로 두 데이터 모두 반환
-  return ContentService.createTextOutput(JSON.stringify({
-    standings: getStandingsDataJSON(),
-    schedule: getScheduleDataJSON(),
-    adminEmail: ADMIN_EMAIL,
-    memberEmails: MEMBER_EMAILS
-  })).setMimeType(ContentService.MimeType.JSON);
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) return [];
+  
+  const values = sheet.getRange(2, 1, lastRow - 1, 3).getValues();
+  return values.map(row => ({
+    initial: row[0],
+    email: row[1],
+    status: row[2]
+  }));
 }
 
-// POST 요청 처리 (앱에서 일정/상태 저장 시)
-function doPost(e) {
-  try {
-    const data = JSON.parse(e.postData.contents);
-    
-    if (data.action === 'updateSchedule') {
-      // 일정 업데이트 로직 (추후 구현)
-      return ContentService.createTextOutput(JSON.stringify({ success: true, message: '일정 저장 완료' }))
-        .setMimeType(ContentService.MimeType.JSON);
-    }
-    
-    return ContentService.createTextOutput(JSON.stringify({ success: false, message: '알 수 없는 액션' }))
-      .setMimeType(ContentService.MimeType.JSON);
-      
-  } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({ success: false, error: error.message }))
-      .setMimeType(ContentService.MimeType.JSON);
+function updateGlobalMembers(newList) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(MEMBER_SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(MEMBER_SHEET_NAME);
+    sheet.appendRow(['이니셜', '이메일', '상태']);
   }
+  
+  // 기존 데이터 삭제 (헤더 제외)
+  const lastRow = sheet.getLastRow();
+  if (lastRow > 1) {
+    sheet.getRange(2, 1, lastRow - 1, 3).clearContent();
+  }
+  
+  if (newList.length > 0) {
+    const values = newList.map(m => [m.initial, m.email || '', m.status || '유지']);
+    sheet.getRange(2, 1, values.length, 3).setValues(values);
+  }
+  
+  return { success: true, message: '멤버 목록 저장 완료' };
 }
 
-// ==========================================
-// 4. 데이터 읽기 헬퍼 함수
-// ==========================================
 function getStandingsDataJSON() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('팀순위');
   if (!sheet) return { data: [], lastUpdated: '' };
@@ -236,8 +232,286 @@ function getStandingsDataJSON() {
   return { data: standings, lastUpdated: lastUpdated };
 }
 
+const ADMIN_EMAIL = 'taeoh0311@gmail.com'; // 관리자 이메일 설정
+
+/**
+ * 이메일 권한 확인 함수
+ * @param {string} email - 체크할 사용자 이메일
+ * @returns {boolean} - 등록된 유효 멤버 여부
+ */
+function isAuthorized(email) {
+  if (!email) return false;
+  
+  // 관리자는 항상 무사통과
+  if (email.toLowerCase() === ADMIN_EMAIL.toLowerCase()) return true;
+  
+  const members = getGlobalMembersList();
+  // '유지' 상태인 멤버 중에서 해당 이메일이 있는지 확인
+  return members.some(m => 
+    m.email && m.email.toLowerCase() === email.toLowerCase() && m.status === '유지'
+  );
+}
+
+// GET 요청 처리 (앱이 켜질 때 데이터 읽기)
+function doGet(e) {
+  const email = e.parameter ? e.parameter.email : null;
+  const action = e.parameter ? e.parameter.action : null;
+  
+  // 보안 검증: 이메일이 없거나 권한이 없는 경우 차단
+  if (!isAuthorized(email)) {
+    return ContentService.createTextOutput(JSON.stringify({ 
+      success: false, 
+      error: 'UNAUTHORIZED', 
+      message: '등록되지 않은 이메일이거나 접근 권한이 없습니다.' 
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+  
+  const scheduleObj = getScheduleDataJSON();
+  const standingsObj = getStandingsDataJSON();
+  const membersList = getGlobalMembersList();
+  
+  if (action === 'getStandings') {
+    return ContentService.createTextOutput(JSON.stringify({
+      data: standingsObj.data,
+      lastUpdated: standingsObj.lastUpdated,
+      adminEmail: ADMIN_EMAIL,
+      members: membersList
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+  
+  // 기본 데이터 반환 (일정, 멤버 상태, 순위 모두 포함)
+  const result = {
+    success: true,
+    standings: standingsObj.data,
+    lastUpdated: standingsObj.lastUpdated,
+    schedule: scheduleObj.schedule,
+    memberData: scheduleObj.memberData,
+    confirmedDates: scheduleObj.confirmedDates,
+    adminEmail: ADMIN_EMAIL,
+    members: membersList
+  };
+  
+  return ContentService.createTextOutput(JSON.stringify(result))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// POST 요청 처리 (앱에서 일정/상태 저장 시)
+function doPost(e) {
+  try {
+    const data = JSON.parse(e.postData.contents);
+    const email = data.userEmail; // 요청 시 전달받은 사용자 이메일
+    
+    // 보안 검증
+    if (!isAuthorized(email)) {
+      return ContentService.createTextOutput(JSON.stringify({ 
+        success: false, 
+        error: 'UNAUTHORIZED', 
+        message: '저장 권한이 없습니다.' 
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    if (data.action === 'updateSchedule' || data.action === 'updateGlobalMembers' || data.action === 'confirmDate' || data.action === 'cancelConfirmDate') {
+      if (email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        return ContentService.createTextOutput(JSON.stringify({ 
+          success: false, 
+          message: '관리자만 수행 가능한 작업입니다.' 
+        })).setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+    
+    if (data.action === 'updateSchedule') {
+      // 일정 업데이트 로직 (추후 구현)
+      return ContentService.createTextOutput(JSON.stringify({ success: true, message: '일정 저장 완료' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    if (data.action === 'updateMemberStatus') {
+      const result = updateMemberStatus(data.data.date, data.data.memberInitial, data.data.status);
+      return ContentService.createTextOutput(JSON.stringify(result))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    if (data.action === 'updateGlobalMembers') {
+      const result = updateGlobalMembers(data.data.members);
+      return ContentService.createTextOutput(JSON.stringify(result))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    if (data.action === 'confirmDate') {
+      // 관람 확정 로직 (코드 생략 방지 - 기존 로직 유지)
+      // scheduleObj.confirmedDates.push(data.data.date) 등 실제 구현 필요 시 추가
+      return ContentService.createTextOutput(JSON.stringify({ success: true, message: '관람 확정 완료' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    return ContentService.createTextOutput(JSON.stringify({ success: false, message: '알 수 없는 액션' }))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({ success: false, error: error.message }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// 특정 날짜, 멤버의 상태를 시트에서 찾아 업데이트
+function updateMemberStatus(dateStr, memberInitial, status) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const date = new Date(dateStr);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  
+  const sheetName = `${year}년 ${month}월`;
+  const sheet = ss.getSheetByName(sheetName);
+  
+  if (!sheet) return { success: false, message: '해당 월의 시트를 찾을 수 없습니다: ' + sheetName };
+  
+  const data = sheet.getRange("A1:N32").getValues();
+  let foundRow = -1;
+  let foundCol = -1;
+  
+  // 날짜(day) 찾기
+  for (let r = 0; r < data.length; r++) {
+    for (let c = 0; c < data[r].length; c += 2) {
+      if (data[r][c] == day) {
+        foundRow = r;
+        foundCol = c;
+        break;
+      }
+    }
+    if (foundRow !== -1) break;
+  }
+  
+  if (foundRow === -1) return { success: false, message: '날짜를 찾을 수 없습니다: ' + day };
+  
+  // 멤버별 오프셋 설정 (0-indexed offset from date cell)
+  const offsetMap = {
+    'IH': [2, 0], 'TO': [3, 0], 'MH': [4, 0], 'JA': [5, 0],
+    'MG': [2, 1], 'GJ': [3, 1], 'JY': [4, 1], 'SB': [5, 1]
+  };
+  
+  const offset = offsetMap[memberInitial];
+  if (!offset) return { success: false, message: '알 수 없는 멤버입니다: ' + memberInitial };
+  
+  const targetRow = foundRow + offset[0] + 1; // 1-indexed for getRange
+  const targetCol = foundCol + offset[1] + 1;
+  
+  // 상태 매핑 (앱의 값을 시트 값으로)
+  let sheetStatus = status;
+  if (status === '불가') sheetStatus = '불가능'; // 시트 형식이 '불가능'인 경우 대응
+  
+  sheet.getRange(targetRow, targetCol).setValue(sheetStatus);
+  
+  return { success: true, message: '상태 업데이트 완료', cell: sheet.getRange(targetRow, targetCol).getA1Notation() };
+}
+
+// ==========================================
+// 4. 데이터 읽기 헬퍼 함수
+// ==========================================
 function getScheduleDataJSON() {
-  // 기존 달력 시트('일정' 또는 'Sheet1')에서 데이터를 읽어오는 로직
-  // 현재는 임시 빈 배열 반환. 실제 시트 구조에 맞춰 수정 필요
-  return []; 
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheets = ss.getSheets();
+  const scheduleByDate = []; // match 객체 리스트 (Flutter BaseballMatch 용)
+  const memberData = {};     // { "date": ["IH|가능", "MG|불가", ...] }
+  const confirmedDates = [];
+  
+  const members = getGlobalMembersList().filter(m => m.status === '유지').map(m => m.initial);
+  const monthRegex = /^(\d{4})년\s*(\d{1,2})월$/;
+  
+  sheets.forEach(sheet => {
+    const sheetName = sheet.getName();
+    const match = sheetName.match(monthRegex);
+    if (!match) return;
+    
+    const year = match[1];
+    const month = match[2].padStart(2, '0');
+    
+    // 데이터 범위 읽기 (보통 달력 구조는 A1:N32 내외)
+    const data = sheet.getRange("A1:N32").getValues();
+    
+    // 달력 구조 파싱 (요일별 열: A-B, C-D... / 날짜 시작 행: 3, 9, 15, 21, 27)
+    const startRows = [2, 8, 14, 20, 26]; // 0-indexed: 3행, 9행...
+    const startCols = [0, 2, 4, 6, 8, 10, 12]; // A, C, E, G, I, K, M
+    
+    startRows.forEach(rowIdx => {
+      startCols.forEach(colIdx => {
+        if (rowIdx >= data.length) return;
+        const dayValue = data[rowIdx][colIdx];
+        if (!dayValue || isNaN(dayValue)) return;
+        
+        const dayStr = String(dayValue).padStart(2, '0');
+        const dateKey = `${year}-${month}-${dayStr}`;
+        
+        let matchStr = data[rowIdx + 1] ? (data[rowIdx + 1][colIdx] || "") : "";
+        matchStr = String(matchStr).trim();
+        
+        // 1. 경기 정보 파싱 (예: 한화(대전) 18:30)
+        if (matchStr && !matchStr.includes('경기 없음')) {
+          const matchRegex = /^(.+?)\((.+?)\)\s*(.*)$/;
+          const m = matchStr.match(matchRegex);
+          let team2 = matchStr;
+          let location = "미정";
+          let time = "18:30";
+          
+          if (m) {
+            team2 = m[1];
+            location = m[2];
+            time = m[3] || "18:30";
+          }
+          
+          scheduleByDate.push({
+            date: dateKey,
+            team1: "LIJ",
+            team2: team2,
+            location: location,
+            time: time,
+            status: "진행예정"
+          });
+          
+          if (matchStr.includes('[확정]')) {
+            confirmedDates.push(dateKey);
+          }
+        }
+        
+        // 2. 멤버 상태 추출 (8명)
+        const statuses = [];
+        const statusMap = {
+          'IH': [rowIdx + 2, colIdx],
+          'TO': [rowIdx + 3, colIdx],
+          'MH': [rowIdx + 4, colIdx],
+          'JA': [rowIdx + 5, colIdx],
+          'MG': [rowIdx + 2, colIdx + 1],
+          'GJ': [rowIdx + 3, colIdx + 1],
+          'JY': [rowIdx + 4, colIdx + 1],
+          'SB': [rowIdx + 5, colIdx + 1]
+        };
+        
+        members.forEach(mId => {
+          const pos = statusMap[mId];
+          let s = "미정";
+          if (data[pos[0]] && data[pos[0]][pos[1]]) {
+            s = mapStatus(data[pos[0]][pos[1]]);
+          }
+          statuses.push(`${mId}|${s}`);
+        });
+        
+        memberData[dateKey] = statuses;
+      });
+    });
+  });
+  
+  return {
+    schedule: scheduleByDate,
+    memberData: memberData,
+    confirmedDates: confirmedDates
+  };
+}
+
+function mapStatus(val) {
+  if (!val) return "미정";
+  val = String(val).trim();
+  if (val === '가능') return "가능";
+  if (val === '불가능' || val === '불가') return "불가";
+  if (val === '쉬는날' || val === '휴무') return "휴무";
+  return "미정";
 }
